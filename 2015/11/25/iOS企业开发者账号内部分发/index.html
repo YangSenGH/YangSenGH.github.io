@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Mac,效率," />
+  <meta name="keywords" content="真机," />
 
 
 
@@ -84,21 +84,26 @@
 
 
 
-<meta name="description" content="上个月由于开发的棋牌类游戏接近尾声，需要大量的苹果测试机来支持，之前公司的开发者账号是公司性质的，添加新的测试机都需要添加UDID，做了不少无用功，再加上本身外包性质的公司导致客户方面频繁更换手机测试app也是个棘手的问题，因此公司又壕气申请了企业开发者账号，今天就总结下企业开发者账号内部(In-House)应用的分发过程。
-企业内部应用企业内部应用，即只在企业部门和员工内部使用、不对外公开的应用">
+<meta name="description" content="上个月由于公司开发的棋牌类游戏接近尾声，需要大量的苹果测试机来支持，之前只有一个公司开发者账号，每添加新的测试机都需要添加一次UDID，做了不少无用功，再加上本身外包性质的公司导致客户方面频繁更换手机测试app也是个棘手的问题，因此公司又壕气申请了企业开发者账号，今天就总结下企业开发者账号内部(In-House)应用的分发过程。
+什么是企业内部应用企业内部应用，即只在企业部门和员工内部使用、不对外">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS企业开发者账号内部分发">
 <meta property="og:url" content="http://yangsendev.com/2015/11/25/iOS企业开发者账号内部分发/index.html">
 <meta property="og:site_name" content="Sean‘s DevBlog">
-<meta property="og:description" content="上个月由于开发的棋牌类游戏接近尾声，需要大量的苹果测试机来支持，之前公司的开发者账号是公司性质的，添加新的测试机都需要添加UDID，做了不少无用功，再加上本身外包性质的公司导致客户方面频繁更换手机测试app也是个棘手的问题，因此公司又壕气申请了企业开发者账号，今天就总结下企业开发者账号内部(In-House)应用的分发过程。
-企业内部应用企业内部应用，即只在企业部门和员工内部使用、不对外公开的应用">
-<meta property="og:image" content="http://oh6pxgkf2.bkt.clouddn.com/45eac28065380cd743e6042ba944ad345b828195.jpg">
-<meta property="og:updated_time" content="2016-11-25T06:54:29.000Z">
+<meta property="og:description" content="上个月由于公司开发的棋牌类游戏接近尾声，需要大量的苹果测试机来支持，之前只有一个公司开发者账号，每添加新的测试机都需要添加一次UDID，做了不少无用功，再加上本身外包性质的公司导致客户方面频繁更换手机测试app也是个棘手的问题，因此公司又壕气申请了企业开发者账号，今天就总结下企业开发者账号内部(In-House)应用的分发过程。
+什么是企业内部应用企业内部应用，即只在企业部门和员工内部使用、不对外">
+<meta property="og:image" content="http://oh6pxgkf2.bkt.clouddn.com/senblog-151125-0.jpg">
+<meta property="og:image" content="http://oh6pxgkf2.bkt.clouddn.com/senblog-151125-1.jpg">
+<meta property="og:image" content="http://oh6pxgkf2.bkt.clouddn.com/senblog-151125-2.jpg">
+<meta property="og:image" content="http://oh6pxgkf2.bkt.clouddn.com/senblog-151125-4.png">
+<meta property="og:image" content="http://oh6pxgkf2.bkt.clouddn.com/senblog-151125-3.jpg">
+<meta property="og:image" content="http://oh6pxgkf2.bkt.clouddn.com/senblog-151125-5.png">
+<meta property="og:updated_time" content="2016-11-25T07:56:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS企业开发者账号内部分发">
-<meta name="twitter:description" content="上个月由于开发的棋牌类游戏接近尾声，需要大量的苹果测试机来支持，之前公司的开发者账号是公司性质的，添加新的测试机都需要添加UDID，做了不少无用功，再加上本身外包性质的公司导致客户方面频繁更换手机测试app也是个棘手的问题，因此公司又壕气申请了企业开发者账号，今天就总结下企业开发者账号内部(In-House)应用的分发过程。
-企业内部应用企业内部应用，即只在企业部门和员工内部使用、不对外公开的应用">
-<meta name="twitter:image" content="http://oh6pxgkf2.bkt.clouddn.com/45eac28065380cd743e6042ba944ad345b828195.jpg">
+<meta name="twitter:description" content="上个月由于公司开发的棋牌类游戏接近尾声，需要大量的苹果测试机来支持，之前只有一个公司开发者账号，每添加新的测试机都需要添加一次UDID，做了不少无用功，再加上本身外包性质的公司导致客户方面频繁更换手机测试app也是个棘手的问题，因此公司又壕气申请了企业开发者账号，今天就总结下企业开发者账号内部(In-House)应用的分发过程。
+什么是企业内部应用企业内部应用，即只在企业部门和员工内部使用、不对外">
+<meta name="twitter:image" content="http://oh6pxgkf2.bkt.clouddn.com/senblog-151125-0.jpg">
 
 
 
@@ -327,17 +332,19 @@
       
 
       
-        <p>上个月由于开发的棋牌类游戏接近尾声，需要大量的苹果测试机来支持，之前公司的开发者账号是公司性质的，添加新的测试机都需要添加UDID，做了不少无用功，再加上本身外包性质的公司导致客户方面频繁更换手机测试app也是个棘手的问题，因此公司又壕气申请了企业开发者账号，今天就总结下企业开发者账号内部(In-House)应用的分发过程。</p>
-<h2 id="企业内部应用"><a href="#企业内部应用" class="headerlink" title="企业内部应用"></a>企业内部应用</h2><p>企业内部应用，即只在企业部门和员工内部使用、不对外公开的应用。苹果提供了专门的In-House证书用来发布这种应用，可以分发给任意的手机，只要通过一个URL即可下载安装，不用上传到App Stroe审核。我把企业内部应用也叫做In-House应用。<br>In-House应用，有时需要根据部门需求进行版本的快速迭代，因为不需要App Store审核，所以可以做到随时修改，随时发布，节省了大量的时间。In-House证书还可以用于应用的内测分发，现在大部分的内测分发平台如蒲公英，Fir.im等的公测功能就是使用In-House证书实现的。</p>
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p><img src="http://oh6pxgkf2.bkt.clouddn.com/45eac28065380cd743e6042ba944ad345b828195.jpg" alt="123"></p>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>上个月由于公司开发的棋牌类游戏接近尾声，需要大量的苹果测试机来支持，之前只有一个公司开发者账号，每添加新的测试机都需要添加一次UDID，做了不少无用功，再加上本身外包性质的公司导致客户方面频繁更换手机测试app也是个棘手的问题，因此公司又壕气申请了企业开发者账号，今天就总结下企业开发者账号内部(<code>In-House</code>)应用的分发过程。</p>
+<h2 id="什么是企业内部应用"><a href="#什么是企业内部应用" class="headerlink" title="什么是企业内部应用"></a>什么是企业内部应用</h2><p>企业内部应用，即只在企业部门和员工内部使用、不对外公开的应用。苹果提供了专门的<code>In-House</code>证书用来发布这种应用，可以分发给任意的手机，只要通过一个URL即可下载安装，不用上传到App Stroe审核，所以一般外包类型的公司因为涉及到项目多，客户杂，所以使用企业内部分发可以省去很多app测试上面的时间。我把企业内部应用也叫做<code>In-House</code>应用。</p>
+<p><code>In-House</code>应用，有时需要根据部门需求进行版本的快速迭代，因为不需要App Store审核，所以可以做到随时修改，随时发布，节省了大量的时间。<code>In-House</code>证书还可以用于应用的内测分发，现在大部分的内测分发平台如蒲公英，Fir.im等的公测功能就是使用<code>In-House</code>证书实现的。</p>
+<h2 id="需要准备的文件"><a href="#需要准备的文件" class="headerlink" title="需要准备的文件"></a>需要准备的文件</h2><blockquote>
+<p>1 . 企业开发者账号。99$的个人或公司开发者账号不行，必须以企业的名义<a href="https://developer.apple.com/programs/enterprise/" target="_blank" rel="external">申请一个299$的企业开发者账号</a>。<br>2 . 带SSL证书的域名。企业内部应用需要把ipa文件上传到服务器，然后通过一个链接来下载安装，而苹果很重视安全性，要求这个链接的域名必须具有SSL证书，支持 https ，否则无法安装（这一部分就交给后台的人去做吧）。<br>3 . <code>ipa</code>文件。<br>4 . <code>plist</code>文件。名称必须与<code>ipa</code>文件一致，用于配置bundle id、版本号、<code>ipa</code>文件的URL、应用图标等。<br>5 . @1x 和 @2x 的Icon。下载安装时显示应用图标。</p>
+</blockquote>
+<h2 id="项目打包"><a href="#项目打包" class="headerlink" title="项目打包"></a>项目打包</h2><h3 id="1-创建发布证书（Production-Certificates），选择In-House类型的，过程我就不赘述了，和其他证书一样。"><a href="#1-创建发布证书（Production-Certificates），选择In-House类型的，过程我就不赘述了，和其他证书一样。" class="headerlink" title="1.创建发布证书（Production Certificates），选择In-House类型的，过程我就不赘述了，和其他证书一样。"></a>1.创建发布证书（Production Certificates），选择<code>In-House</code>类型的，过程我就不赘述了，和其他证书一样。</h3><p><img src="http://oh6pxgkf2.bkt.clouddn.com/senblog-151125-0.jpg" alt="senblog-151125"></p>
+<h3 id="2-创建配置文件（Distribution-Provisioning-Profiles）"><a href="#2-创建配置文件（Distribution-Provisioning-Profiles）" class="headerlink" title="2.创建配置文件（Distribution Provisioning Profiles）"></a>2.创建配置文件（<strong>Distribution Provisioning Profiles</strong>）</h3><p><img src="http://oh6pxgkf2.bkt.clouddn.com/senblog-151125-1.jpg" alt="senblog-151125"><br><img src="http://oh6pxgkf2.bkt.clouddn.com/senblog-151125-2.jpg" alt="senblog-151125"></p>
+<h3 id="3-在Xcode-BuildSettings中选择对应的Code-Signing-和-Provisioning-Profile-Archive"><a href="#3-在Xcode-BuildSettings中选择对应的Code-Signing-和-Provisioning-Profile-Archive" class="headerlink" title="3.在Xcode-BuildSettings中选择对应的Code Signing 和 Provisioning Profile, Archive"></a>3.在Xcode-BuildSettings中选择对应的Code Signing 和 Provisioning Profile, Archive</h3><p><img src="http://oh6pxgkf2.bkt.clouddn.com/senblog-151125-4.png" alt="senblog-151125"></p>
+<h3 id="4-导出-ipa-文件"><a href="#4-导出-ipa-文件" class="headerlink" title="4.导出 ipa 文件"></a>4.导出 ipa 文件</h3><p><img src="http://oh6pxgkf2.bkt.clouddn.com/senblog-151125-3.jpg" alt="senblog-151125"></p>
+<h2 id="Plist文件"><a href="#Plist文件" class="headerlink" title="Plist文件"></a>Plist文件</h2><p>Xcode 5及其以前打包<code>In-House</code>应用会一起生成<code>ipa</code>和<code>plist</code>文件，但Xcode 6 以后就只有<code>ipa</code>文件了，所以要手动生成 plist文件。<br><img src="http://oh6pxgkf2.bkt.clouddn.com/senblog-151125-5.png" alt="senblog-151125"><br>文件格式如下：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line">&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;</div><div class="line">&lt;plist version="1.0"&gt;</div><div class="line">&lt;dict&gt;</div><div class="line">    &lt;key&gt;items&lt;/key&gt;</div><div class="line">    &lt;array&gt;</div><div class="line">        &lt;dict&gt;</div><div class="line">            &lt;key&gt;assets&lt;/key&gt;</div><div class="line">            &lt;array&gt;</div><div class="line">                &lt;dict&gt;</div><div class="line">                    &lt;key&gt;kind&lt;/key&gt;</div><div class="line">                    &lt;string&gt;software-package&lt;/string&gt;</div><div class="line">                    &lt;key&gt;url&lt;/key&gt;</div><div class="line">                    &lt;string&gt;http://www.xxx.com/ios/xxx.ipa&lt;/string&gt;</div><div class="line">                &lt;/dict&gt;</div><div class="line">&lt;dict&gt;</div><div class="line">&lt;key&gt;kind&lt;/key&gt;</div><div class="line">&lt;string&gt;full-size-image&lt;/string&gt;</div><div class="line">&lt;key&gt;needs-shine&lt;/key&gt;</div><div class="line">&lt;false/&gt;</div><div class="line">&lt;key&gt;url&lt;/key&gt;</div><div class="line">&lt;string&gt;http://www.xxx.com/image/xxx.@2x.png&lt;/string&gt;</div><div class="line">&lt;/dict&gt;</div><div class="line">&lt;dict&gt;</div><div class="line">&lt;key&gt;kind&lt;/key&gt;</div><div class="line">&lt;string&gt;display-image&lt;/string&gt;</div><div class="line">&lt;key&gt;needs-shine&lt;/key&gt;</div><div class="line">&lt;true/&gt;</div><div class="line">&lt;key&gt;url&lt;/key&gt;</div><div class="line">&lt;string&gt;http://www.xxx.com/image/xxx.png&lt;/string&gt;</div><div class="line">&lt;/dict&gt;</div><div class="line">            &lt;/array&gt;</div><div class="line">            &lt;key&gt;metadata&lt;/key&gt;</div><div class="line">            &lt;dict&gt;</div><div class="line">                &lt;key&gt;bundle-identifier&lt;/key&gt;</div><div class="line">&lt;string&gt;http://yangsendev.com/&lt;/string&gt;</div><div class="line">                &lt;key&gt;bundle-version&lt;/key&gt;</div><div class="line">                &lt;string&gt;1.0&lt;/string&gt;</div><div class="line">                &lt;key&gt;kind&lt;/key&gt;</div><div class="line">                &lt;string&gt;software&lt;/string&gt;</div><div class="line">                &lt;key&gt;title&lt;/key&gt;</div><div class="line">                &lt;string&gt;这里用的是中文名称&lt;/string&gt;</div><div class="line">            &lt;/dict&gt;</div><div class="line">        &lt;/dict&gt;</div><div class="line">    &lt;/array&gt;</div><div class="line">&lt;/dict&gt;</div><div class="line">&lt;/plist&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="发布与安装"><a href="#发布与安装" class="headerlink" title="发布与安装"></a>发布与安装</h2><h3 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h3><p>把ipa、配置好的plist 文件和图标交给后台吧，后面就看他们的了。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>iOS的企业内部应用是通过访问<code>plist</code>文件来安装的，因为<code>plist</code>文件中包含了对应的ipa文件和图标的URL，iPhone会根据URL自动下载并安装应用程序。<br>苹果是一个极其重视安全性的公司，<code>iOS 9</code> 以后，安装的企业级应用在第一次打开之前必须要用户手动去信任这些App。<br>具体步骤如下：<br>打开 <code>设置</code> –&gt; <code>通用</code> –&gt; <code>描述文件与设备管理</code><br>在 <code>企业级应用</code> 分组下，点击 <code>信任</code> 开发者的证书</p>
 
       
     </div>
@@ -360,9 +367,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Mac/" rel="tag">#Mac</a>
-          
-            <a href="/tags/效率/" rel="tag">#效率</a>
+            <a href="/tags/真机/" rel="tag">#真机</a>
           
         </div>
       
@@ -371,8 +376,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/09/03/IOS开发宝典/" rel="next" title="IOS开发宝典">
-                <i class="fa fa-chevron-left"></i> IOS开发宝典
+              <a href="/2015/09/02/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
               </a>
             
           </div>
@@ -468,7 +473,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">全部</span>
             </a>
           </div>
@@ -485,7 +490,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -534,7 +539,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#企业内部应用"><span class="nav-number">1.</span> <span class="nav-text">企业内部应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是企业内部应用"><span class="nav-number">1.</span> <span class="nav-text">什么是企业内部应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需要准备的文件"><span class="nav-number">2.</span> <span class="nav-text">需要准备的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目打包"><span class="nav-number">3.</span> <span class="nav-text">项目打包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-创建发布证书（Production-Certificates），选择In-House类型的，过程我就不赘述了，和其他证书一样。"><span class="nav-number">3.1.</span> <span class="nav-text">1.创建发布证书（Production Certificates），选择In-House类型的，过程我就不赘述了，和其他证书一样。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-创建配置文件（Distribution-Provisioning-Profiles）"><span class="nav-number">3.2.</span> <span class="nav-text">2.创建配置文件（Distribution Provisioning Profiles）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-在Xcode-BuildSettings中选择对应的Code-Signing-和-Provisioning-Profile-Archive"><span class="nav-number">3.3.</span> <span class="nav-text">3.在Xcode-BuildSettings中选择对应的Code Signing 和 Provisioning Profile, Archive</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-导出-ipa-文件"><span class="nav-number">3.4.</span> <span class="nav-text">4.导出 ipa 文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Plist文件"><span class="nav-number">4.</span> <span class="nav-text">Plist文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发布与安装"><span class="nav-number">5.</span> <span class="nav-text">发布与安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#发布"><span class="nav-number">5.1.</span> <span class="nav-text">发布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">5.2.</span> <span class="nav-text">安装</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
