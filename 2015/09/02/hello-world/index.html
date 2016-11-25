@@ -92,7 +92,7 @@ Quick">
 <meta property="og:site_name" content="Sean‘s DevBlog">
 <meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
 Quick">
-<meta property="og:updated_time" content="2016-11-25T08:30:41.000Z">
+<meta property="og:updated_time" content="2016-11-25T08:33:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hello World">
 <meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
@@ -326,13 +326,42 @@ Quick">
 
       
         <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">-(<span class="keyword">void</span>)textidEndEditingWithInputBox:(LHZInputBox *)inputBox FieldText:(NSString *)text</div><div class="line">&#123;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (inputBox==self.userBox) &#123;</div><div class="line"><span class="keyword">if</span> (isPhoneLogin) &#123;</div><div class="line"></div><div class="line"><span class="keyword">if</span> ([text length]!=PHONE_LENTH_MAX)&#123;</div><div class="line">[inputBox showFlaseWithText:@<span class="string">"手机号码格式不正确"</span>];</div><div class="line">&#125;</div><div class="line">&#125;<span class="keyword">else</span></div><div class="line">&#123;</div><div class="line"><span class="keyword">if</span> ([text length]&lt;<span class="number">6</span>) &#123;</div><div class="line">[inputBox showFlaseWithText:@<span class="string">"用户名格式不正确"</span>];</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;<span class="keyword">else</span></div><div class="line">&#123;</div><div class="line"><span class="keyword">if</span> (isPhoneLogin) &#123;</div><div class="line"></div><div class="line"><span class="keyword">if</span> ([text length]!=CODE_LENTH) &#123;</div><div class="line">[inputBox showFlaseWithText:@<span class="string">"请输入六位验证码"</span>];</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="objc">-(void)textidEndEditingWithInputBox:(LHZInputBox *)inputBox FieldText:(NSString *)text
+{
+
+if (inputBox==self.userBox) {
+if (isPhoneLogin) {
+
+if ([text length]!=PHONE_LENTH_MAX){
+[inputBox showFlaseWithText:@&quot;手机号码格式不正确&quot;];
+}
+}else
+{
+if ([text length]&lt;6) {
+[inputBox showFlaseWithText:@&quot;用户名格式不正确&quot;];
+}
+}
+
+}else
+{
+if (isPhoneLogin) {
+
+if ([text length]!=CODE_LENTH) {
+[inputBox showFlaseWithText:@&quot;请输入六位验证码&quot;];
+}
+}
+}
+}
+</code></pre>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
+</code></pre>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
+</code></pre>
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
+</code></pre>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
       

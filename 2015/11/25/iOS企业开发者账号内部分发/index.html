@@ -342,7 +342,55 @@
 <h3 id="2-创建配置文件（Distribution-Provisioning-Profiles）"><a href="#2-创建配置文件（Distribution-Provisioning-Profiles）" class="headerlink" title="2.创建配置文件（Distribution Provisioning Profiles）"></a>2.创建配置文件（<strong>Distribution Provisioning Profiles</strong>）</h3><p><img src="http://oh6pxgkf2.bkt.clouddn.com/senblog-151125-1.jpg" alt="senblog-151125"><br><img src="http://oh6pxgkf2.bkt.clouddn.com/senblog-151125-2.jpg" alt="senblog-151125"></p>
 <h3 id="3-在Xcode-BuildSettings中选择对应的Code-Signing-和-Provisioning-Profile-Archive"><a href="#3-在Xcode-BuildSettings中选择对应的Code-Signing-和-Provisioning-Profile-Archive" class="headerlink" title="3.在Xcode-BuildSettings中选择对应的Code Signing 和 Provisioning Profile, Archive"></a>3.在Xcode-BuildSettings中选择对应的Code Signing 和 Provisioning Profile, Archive</h3><p><img src="http://oh6pxgkf2.bkt.clouddn.com/senblog-151125-4.png" alt="senblog-151125"></p>
 <h3 id="4-导出-ipa-文件"><a href="#4-导出-ipa-文件" class="headerlink" title="4.导出 ipa 文件"></a>4.导出 ipa 文件</h3><p><img src="http://oh6pxgkf2.bkt.clouddn.com/senblog-151125-3.jpg" alt="senblog-151125"></p>
-<h2 id="Plist文件"><a href="#Plist文件" class="headerlink" title="Plist文件"></a>Plist文件</h2><p>Xcode 5及其以前打包<code>In-House</code>应用会一起生成<code>ipa</code>和<code>plist</code>文件，但Xcode 6 以后就只有<code>ipa</code>文件了，所以要手动生成 plist文件。<br><img src="http://oh6pxgkf2.bkt.clouddn.com/senblog-151125-5.png" alt="senblog-151125"><br>文件格式如下：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line">&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;</div><div class="line">&lt;plist version="1.0"&gt;</div><div class="line">&lt;dict&gt;</div><div class="line">    &lt;key&gt;items&lt;/key&gt;</div><div class="line">    &lt;array&gt;</div><div class="line">        &lt;dict&gt;</div><div class="line">            &lt;key&gt;assets&lt;/key&gt;</div><div class="line">            &lt;array&gt;</div><div class="line">                &lt;dict&gt;</div><div class="line">                    &lt;key&gt;kind&lt;/key&gt;</div><div class="line">                    &lt;string&gt;software-package&lt;/string&gt;</div><div class="line">                    &lt;key&gt;url&lt;/key&gt;</div><div class="line">                    &lt;string&gt;http://www.xxx.com/ios/xxx.ipa&lt;/string&gt;</div><div class="line">                &lt;/dict&gt;</div><div class="line">&lt;dict&gt;</div><div class="line">&lt;key&gt;kind&lt;/key&gt;</div><div class="line">&lt;string&gt;full-size-image&lt;/string&gt;</div><div class="line">&lt;key&gt;needs-shine&lt;/key&gt;</div><div class="line">&lt;false/&gt;</div><div class="line">&lt;key&gt;url&lt;/key&gt;</div><div class="line">&lt;string&gt;http://www.xxx.com/image/xxx.@2x.png&lt;/string&gt;</div><div class="line">&lt;/dict&gt;</div><div class="line">&lt;dict&gt;</div><div class="line">&lt;key&gt;kind&lt;/key&gt;</div><div class="line">&lt;string&gt;display-image&lt;/string&gt;</div><div class="line">&lt;key&gt;needs-shine&lt;/key&gt;</div><div class="line">&lt;true/&gt;</div><div class="line">&lt;key&gt;url&lt;/key&gt;</div><div class="line">&lt;string&gt;http://www.xxx.com/image/xxx.png&lt;/string&gt;</div><div class="line">&lt;/dict&gt;</div><div class="line">            &lt;/array&gt;</div><div class="line">            &lt;key&gt;metadata&lt;/key&gt;</div><div class="line">            &lt;dict&gt;</div><div class="line">                &lt;key&gt;bundle-identifier&lt;/key&gt;</div><div class="line">&lt;string&gt;http://yangsendev.com/&lt;/string&gt;</div><div class="line">                &lt;key&gt;bundle-version&lt;/key&gt;</div><div class="line">                &lt;string&gt;1.0&lt;/string&gt;</div><div class="line">                &lt;key&gt;kind&lt;/key&gt;</div><div class="line">                &lt;string&gt;software&lt;/string&gt;</div><div class="line">                &lt;key&gt;title&lt;/key&gt;</div><div class="line">                &lt;string&gt;这里用的是中文名称&lt;/string&gt;</div><div class="line">            &lt;/dict&gt;</div><div class="line">        &lt;/dict&gt;</div><div class="line">    &lt;/array&gt;</div><div class="line">&lt;/dict&gt;</div><div class="line">&lt;/plist&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="Plist文件"><a href="#Plist文件" class="headerlink" title="Plist文件"></a>Plist文件</h2><p>Xcode 5及其以前打包<code>In-House</code>应用会一起生成<code>ipa</code>和<code>plist</code>文件，但Xcode 6 以后就只有<code>ipa</code>文件了，所以要手动生成 plist文件。<br><img src="http://oh6pxgkf2.bkt.clouddn.com/senblog-151125-5.png" alt="senblog-151125"><br>文件格式如下：</p>
+<pre><code class="obj-c">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+    &lt;key&gt;items&lt;/key&gt;
+    &lt;array&gt;
+        &lt;dict&gt;
+            &lt;key&gt;assets&lt;/key&gt;
+            &lt;array&gt;
+                &lt;dict&gt;
+                    &lt;key&gt;kind&lt;/key&gt;
+                    &lt;string&gt;software-package&lt;/string&gt;
+                    &lt;key&gt;url&lt;/key&gt;
+                    &lt;string&gt;http://www.xxx.com/ios/xxx.ipa&lt;/string&gt;
+                &lt;/dict&gt;
+&lt;dict&gt;
+&lt;key&gt;kind&lt;/key&gt;
+&lt;string&gt;full-size-image&lt;/string&gt;
+&lt;key&gt;needs-shine&lt;/key&gt;
+&lt;false/&gt;
+&lt;key&gt;url&lt;/key&gt;
+&lt;string&gt;http://www.xxx.com/image/xxx.@2x.png&lt;/string&gt;
+&lt;/dict&gt;
+&lt;dict&gt;
+&lt;key&gt;kind&lt;/key&gt;
+&lt;string&gt;display-image&lt;/string&gt;
+&lt;key&gt;needs-shine&lt;/key&gt;
+&lt;true/&gt;
+&lt;key&gt;url&lt;/key&gt;
+&lt;string&gt;http://www.xxx.com/image/xxx.png&lt;/string&gt;
+&lt;/dict&gt;
+            &lt;/array&gt;
+            &lt;key&gt;metadata&lt;/key&gt;
+            &lt;dict&gt;
+                &lt;key&gt;bundle-identifier&lt;/key&gt;
+&lt;string&gt;http://yangsendev.com/&lt;/string&gt;
+                &lt;key&gt;bundle-version&lt;/key&gt;
+                &lt;string&gt;1.0&lt;/string&gt;
+                &lt;key&gt;kind&lt;/key&gt;
+                &lt;string&gt;software&lt;/string&gt;
+                &lt;key&gt;title&lt;/key&gt;
+                &lt;string&gt;这里用的是中文名称&lt;/string&gt;
+            &lt;/dict&gt;
+        &lt;/dict&gt;
+    &lt;/array&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre>
 <h2 id="发布与安装"><a href="#发布与安装" class="headerlink" title="发布与安装"></a>发布与安装</h2><h3 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h3><p>把ipa、配置好的plist 文件和图标交给后台吧，后面就看他们的了。</p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>iOS的企业内部应用是通过访问<code>plist</code>文件来安装的，因为<code>plist</code>文件中包含了对应的ipa文件和图标的URL，iPhone会根据URL自动下载并安装应用程序。<br>苹果是一个极其重视安全性的公司，<code>iOS 9</code> 以后，安装的企业级应用在第一次打开之前必须要用户手动去信任这些App。<br>具体步骤如下：<br>打开 <code>设置</code> –&gt; <code>通用</code> –&gt; <code>描述文件与设备管理</code><br>在 <code>企业级应用</code> 分组下，点击 <code>信任</code> 开发者的证书</p>
 
