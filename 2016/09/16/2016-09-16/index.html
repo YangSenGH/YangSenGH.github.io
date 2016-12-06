@@ -1,0 +1,697 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Xcode," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="前言现在在苹果的官网上，我们已经可以下载到Xcode8的GM版本了，加上09.14日凌晨，苹果就正式推出iOS10系统的推送了，在此之际，iOS10的适配已经迫在眉睫啦，不知道Xcode8版本，童鞋们有木有下载过来试试呢？就我的使用来说，总体觉得苹果还是坑不断，但是也在一直进步的啦。下面我就来说说，iOS10的适配以及Xcode8使用上的一些注意点。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="适配iOS10以及Xcode8">
+<meta property="og:url" content="http://yangsendev.com/2016/09/16/2016-09-16/index.html">
+<meta property="og:site_name" content="Sean‘s DevBlog">
+<meta property="og:description" content="前言现在在苹果的官网上，我们已经可以下载到Xcode8的GM版本了，加上09.14日凌晨，苹果就正式推出iOS10系统的推送了，在此之际，iOS10的适配已经迫在眉睫啦，不知道Xcode8版本，童鞋们有木有下载过来试试呢？就我的使用来说，总体觉得苹果还是坑不断，但是也在一直进步的啦。下面我就来说说，iOS10的适配以及Xcode8使用上的一些注意点。">
+<meta property="og:image" content="http://oh6pxgkf2.bkt.clouddn.com/2016-09-12-0.png">
+<meta property="og:image" content="http://oh6pxgkf2.bkt.clouddn.com/2016-09-12-1.png">
+<meta property="og:image" content="http://oh6pxgkf2.bkt.clouddn.com/2016-09-12-2.png">
+<meta property="og:image" content="http://oh6pxgkf2.bkt.clouddn.com/2016-09-12-3.png">
+<meta property="og:image" content="http://oh6pxgkf2.bkt.clouddn.com/2016-09-12-4.png">
+<meta property="og:image" content="http://oh6pxgkf2.bkt.clouddn.com/2016-09-12-5.png">
+<meta property="og:image" content="http://oh6pxgkf2.bkt.clouddn.com/2016-09-12-6.png">
+<meta property="og:image" content="http://oh6pxgkf2.bkt.clouddn.com/2016-09-12-7.png">
+<meta property="og:image" content="http://oh6pxgkf2.bkt.clouddn.com/2016-09-12-8.png">
+<meta property="og:image" content="http://oh6pxgkf2.bkt.clouddn.com/2016-09-12-9.png">
+<meta property="og:image" content="http://oh6pxgkf2.bkt.clouddn.com/2016-09-12-10.png">
+<meta property="og:image" content="http://oh6pxgkf2.bkt.clouddn.com/2016-09-12-11.png">
+<meta property="og:image" content="http://oh6pxgkf2.bkt.clouddn.com/2016-09-12-12.png">
+<meta property="og:updated_time" content="2016-12-06T08:41:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="适配iOS10以及Xcode8">
+<meta name="twitter:description" content="前言现在在苹果的官网上，我们已经可以下载到Xcode8的GM版本了，加上09.14日凌晨，苹果就正式推出iOS10系统的推送了，在此之际，iOS10的适配已经迫在眉睫啦，不知道Xcode8版本，童鞋们有木有下载过来试试呢？就我的使用来说，总体觉得苹果还是坑不断，但是也在一直进步的啦。下面我就来说说，iOS10的适配以及Xcode8使用上的一些注意点。">
+<meta name="twitter:image" content="http://oh6pxgkf2.bkt.clouddn.com/2016-09-12-0.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6292899198123640000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yangsendev.com/2016/09/16/2016-09-16/"/>
+
+  <title> 适配iOS10以及Xcode8 | Sean‘s DevBlog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Sean‘s DevBlog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            主页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                适配iOS10以及Xcode8
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-16T00:00:00+08:00" content="2016-09-16">
+              2016-09-16
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/16/2016-09-16/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/16/2016-09-16/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>现在在苹果的官网上，我们已经可以下载到<code>Xcode8</code>的GM版本了，加上09.14日凌晨，苹果就正式推出<code>iOS10</code>系统的推送了，在此之际，<code>iOS10</code>的适配已经迫在眉睫啦，不知道<code>Xcode8</code>版本，童鞋们有木有下载过来试试呢？就我的使用来说，总体觉得苹果还是坑不断，但是也在一直进步的啦。下面我就来说说，<code>iOS10</code>的适配以及<code>Xcode8</code>使用上的一些注意点。<a id="more"></a></p>
+<h2 id="证书管理"><a href="#证书管理" class="headerlink" title="证书管理"></a>证书管理</h2><p>用Xcode8打开工程后，比较明显的就是下图了，这个是苹果的新特性，可以帮助我们自动管理证书。建议大家勾选这个<strong>Automatically manage signing</strong>（Ps.但是在beat2版本我用的时候，完全不可以，GM版本竟然神奇的又好了。）<br><img src="http://oh6pxgkf2.bkt.clouddn.com/2016-09-12-0.png" alt=""><br>下面我来说说可能会出现的问题：</p>
+<h3 id="1-Xcode未设置开发者账号情况下的截图"><a href="#1-Xcode未设置开发者账号情况下的截图" class="headerlink" title="1.Xcode未设置开发者账号情况下的截图"></a>1.Xcode未设置开发者账号情况下的截图</h3><p><img src="http://oh6pxgkf2.bkt.clouddn.com/2016-09-12-1.png" alt=""><br>解决办法是：大家在Xcode的偏好设置中，添加苹果账号，即可。</p>
+<h3 id="2-设备机器未添加进开发者的Device情况下的截图"><a href="#2-设备机器未添加进开发者的Device情况下的截图" class="headerlink" title="2.设备机器未添加进开发者的Device情况下的截图"></a>2.设备机器未添加进开发者的Device情况下的截图</h3><p><img src="http://oh6pxgkf2.bkt.clouddn.com/2016-09-12-2.png" alt=""><br>解决办法是：大家在官网将设备添加进开发机后，陪下描述文件重新下个描述文件即可。</p>
+<h3 id="3-正常情况-Xcode配置登录开发者账号后的图片，耐心等待即可。"><a href="#3-正常情况-Xcode配置登录开发者账号后的图片，耐心等待即可。" class="headerlink" title="3.正常情况:Xcode配置登录开发者账号后的图片，耐心等待即可。"></a>3.正常情况:Xcode配置登录开发者账号后的图片，耐心等待即可。</h3><p><img src="http://oh6pxgkf2.bkt.clouddn.com/2016-09-12-3.png" alt=""><br>等待完成之后的图<br><img src="http://oh6pxgkf2.bkt.clouddn.com/2016-09-12-4.png" alt=""></p>
+<h2 id="Xib文件的注意事项"><a href="#Xib文件的注意事项" class="headerlink" title="Xib文件的注意事项"></a>Xib文件的注意事项</h2><p>使用Xcode8打开xib文件后，会出现下图的提示。<br><img src="http://oh6pxgkf2.bkt.clouddn.com/2016-09-12-5.png" alt=""><br>大家选择Choose Device即可。<br>之后大家会发现布局啊，frame乱了，只需要更新一下frame即可。如下图：<br><img src="http://oh6pxgkf2.bkt.clouddn.com/2016-09-12-6.png" alt=""></p>
+<p>注意：如果按上面的步骤操作后，在用Xcode7打开Xib会报这个错误：<br><img src="http://oh6pxgkf2.bkt.clouddn.com/2016-09-12-7.png" alt=""></p>
+<p>解决办法：需要删除Xib里面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;capability name=&quot;documents saved in the Xcode 8 format&quot; minToolsVersion=&quot;8.0&quot;/&gt;</div></pre></td></tr></table></figure>
+<p>这句话，以及把&lt; document &gt;中的toolsVersion和&lt; plugIn &gt;中的version改成你正常的xib文件中的值<br>，不过不建议这么做，在Xcode8出来后，希望大家都快速上手，全员更新。这就跟Xcode5到Xcode6一样，有变动，但是还是要尽早学习，尽快适应哟！</p>
+<h2 id="代码注释不能用的解决办法"><a href="#代码注释不能用的解决办法" class="headerlink" title="代码注释不能用的解决办法"></a>代码注释不能用的解决办法</h2><p>这个是因为苹果解决xcode ghost，把插件屏蔽了。<br>解决方法<br>打开终端，命令运行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo /usr/libexec/xpccachectl</div></pre></td></tr></table></figure></p>
+<p>然后必须重启电脑后生效<br>注意：Xcode8内置了开启注释的功能，位置在这里：<br><img src="http://oh6pxgkf2.bkt.clouddn.com/2016-09-12-8.png" alt=""></p>
+<p>快捷键的设置在这里：<br><img src="http://oh6pxgkf2.bkt.clouddn.com/2016-09-12-9.png" alt=""></p>
+<p>貌似Xcode8取消了三方插件的功能，具体可以查阅下Xcode8 Source Editor</p>
+<h2 id="权限以及相关设置"><a href="#权限以及相关设置" class="headerlink" title="权限以及相关设置"></a>权限以及相关设置</h2><p>注意，添加的时候，末尾不要有空格<br>我们需要打开info.plist文件添加相应权限的说明，否则程序在iOS10上会出现崩溃。<br>具体如下图：<br><img src="http://oh6pxgkf2.bkt.clouddn.com/2016-09-12-10.png" alt=""></p>
+<blockquote>
+<ul>
+<li><strong>麦克风权限</strong>：Privacy - Microphone Usage Description </li>
+<li><strong>相机权限</strong>：Privacy - Camera Usage Description </li>
+<li><strong>相册权限</strong>：Privacy - Photo Library Usage Description</li>
+<li><strong>通讯录权限</strong>：Privacy - Contacts Usage Description </li>
+<li><strong>蓝牙权限</strong>：Privacy - Bluetooth Peripheral Usage Description </li>
+<li><strong>语音转文字权限</strong>：Privacy - Speech Recognition Usage Description </li>
+<li><strong>日历权限</strong>： Privacy - Calendars Usage Description </li>
+<li><strong>定位权限 1</strong>：Privacy - Location When In Use Usage Description </li>
+<li><strong>定位权限 2</strong>：Privacy - Location Always Usage Description</li>
+</ul>
+</blockquote>
+<h2 id="字体变大，原有frame需要适配"><a href="#字体变大，原有frame需要适配" class="headerlink" title="字体变大，原有frame需要适配"></a>字体变大，原有frame需要适配</h2><p>原来2个字的宽度是24，现在2个字需要27的宽度来显示了。</p>
+<h2 id="推送"><a href="#推送" class="headerlink" title="推送"></a>推送</h2><p>如下图的部分，不要忘记打开。所有的推送平台，不管是极光还是什么的，要想收到推送，这个是必须打开的哟。<br><img src="http://oh6pxgkf2.bkt.clouddn.com/2016-09-12-11.png" alt=""></p>
+<p>之后就应该可以收到推送了。另外，极光推送也推出新版本了，大家也可以更新下。</p>
+<p>PS.苹果这次对推送做了很大的变化，希望大家多查阅查阅，处理推送的代理方法也变化了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 推送的代理</div><div class="line">[&lt;UNUserNotificationCenterDelegate&gt;]</div></pre></td></tr></table></figure>
+<p>OS10收到通知不再是在<br><code>[application: didReceiveRemoteNotification:]</code>方法去处理， iOS10推出新的代理方法，接收和处理各类通知（本地或者远程）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler &#123;</div><div class="line">       //应用在前台收到通知</div><div class="line">       NSLog(@&quot;========%@&quot;, notification);</div><div class="line"> &#125;</div><div class="line"> - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler &#123; </div><div class="line">      //点击通知进入应用 </div><div class="line">     NSLog(@&quot;response:%@&quot;, response);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="屏蔽杂乱无章的log"><a href="#屏蔽杂乱无章的log" class="headerlink" title="屏蔽杂乱无章的log"></a>屏蔽杂乱无章的log</h2><p>更新Xcode8之后，新建立工程，都会打印一堆莫名其妙看不懂的Log.如这些</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">subsystem: com.apple.UIKit, </div><div class="line">category: HIDEventFiltered, </div><div class="line">enable_level: 0, </div><div class="line">persist_level: 0,</div><div class="line">default_ttl: 0, </div><div class="line">info_ttl: 0,</div><div class="line">debug_ttl: 0, </div><div class="line">generate_symptoms: 0, </div><div class="line">enable_oversize: 1,</div></pre></td></tr></table></figure>
+<p>屏蔽的方法如下:<br>Xcode8里边 Edit Scheme-&gt; Run -&gt; Arguments, 在Environment Variables里边添加<br><code>OS_ACTIVITY_MODE ＝ Disable</code><br><img src="http://oh6pxgkf2.bkt.clouddn.com/2016-09-12-12.png" alt=""></p>
+<p><strong>如果写了之后还是打印log,请重新勾选对勾，就可以解决了。</strong></p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>升级<code>Xcode8</code>已是必然，升级<code>iOS10</code>的用户不能说大有人在，应该也不会少，据说如果不升级<code>Xcode8</code>，上架最新的包，那么可能应用在<code>iOS10</code> 上是不支持的。</p>
+<p>So，这些<code>Xcode8</code>的新特性，大家都应该了解!!!</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Xcode/" rel="tag">#Xcode</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/29/2016-04-29/" rel="next" title="iOS 浅谈MVVM的架构设计">
+                <i class="fa fa-chevron-left"></i> iOS 浅谈MVVM的架构设计
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/09/16/2016-09-16/"
+     data-title="适配iOS10以及Xcode8"
+     data-content=""
+     data-url="http://yangsendev.com/2016/09/16/2016-09-16/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/16/2016-09-16/"
+           data-title="适配iOS10以及Xcode8" data-url="http://yangsendev.com/2016/09/16/2016-09-16/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/img/main_head.png"
+               alt="杨森" />
+          <p class="site-author-name" itemprop="name">杨森</p>
+          <p class="site-description motion-element" itemprop="description">IOS  |  苹果控  |  极客  |  Unity</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/yysean" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2042584707?refer_flag=1001030102_&is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#证书管理"><span class="nav-number">2.</span> <span class="nav-text">证书管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Xcode未设置开发者账号情况下的截图"><span class="nav-number">2.1.</span> <span class="nav-text">1.Xcode未设置开发者账号情况下的截图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-设备机器未添加进开发者的Device情况下的截图"><span class="nav-number">2.2.</span> <span class="nav-text">2.设备机器未添加进开发者的Device情况下的截图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-正常情况-Xcode配置登录开发者账号后的图片，耐心等待即可。"><span class="nav-number">2.3.</span> <span class="nav-text">3.正常情况:Xcode配置登录开发者账号后的图片，耐心等待即可。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Xib文件的注意事项"><span class="nav-number">3.</span> <span class="nav-text">Xib文件的注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码注释不能用的解决办法"><span class="nav-number">4.</span> <span class="nav-text">代码注释不能用的解决办法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#权限以及相关设置"><span class="nav-number">5.</span> <span class="nav-text">权限以及相关设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体变大，原有frame需要适配"><span class="nav-number">6.</span> <span class="nav-text">字体变大，原有frame需要适配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推送"><span class="nav-number">7.</span> <span class="nav-text">推送</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#屏蔽杂乱无章的log"><span class="nav-number">8.</span> <span class="nav-text">屏蔽杂乱无章的log</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后记"><span class="nav-number">9.</span> <span class="nav-text">后记</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">杨森</span>
+</div>
+
+<div class="powered-by">
+  Sean’s DevBlog
+</div>
+
+<div class="theme-info">
+  感谢 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"sean001"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
