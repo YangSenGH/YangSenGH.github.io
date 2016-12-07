@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="NSRunLoop," />
+  <meta name="keywords" content="iOS," />
 
 
 
@@ -84,22 +84,18 @@
 
 
 
-<meta name="description" content="什么是NSRunLoop
-NSRunLoop是消息机制的处理模式。
-NSRunLoop的作用在于有事情做的时候使的当前NSRunLoop的线程工作，没有事情做让当前NSRunLoop的线程休眠。">
+<meta name="description" content="前言iOS交流群里面的小伙伴有一个这样的需求，一个看病app进度条由五个状态，假如当进度条进到第三个状态1的位置时可以看1页面2页面3页面，但是4和5看不成。于是写了个小demo。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS-NSRunLoop对NSTimer作用的理解">
-<meta property="og:url" content="http://yangsendev.com/2015/05/22/2015-05-22/index.html">
+<meta property="og:title" content="看病app的进度界面">
+<meta property="og:url" content="http://yangsendev.com/2016/12/01/2016-12-01/index.html">
 <meta property="og:site_name" content="Sean‘s DevBlog">
-<meta property="og:description" content="什么是NSRunLoop
-NSRunLoop是消息机制的处理模式。
-NSRunLoop的作用在于有事情做的时候使的当前NSRunLoop的线程工作，没有事情做让当前NSRunLoop的线程休眠。">
-<meta property="og:updated_time" content="2016-12-07T04:33:31.000Z">
+<meta property="og:description" content="前言iOS交流群里面的小伙伴有一个这样的需求，一个看病app进度条由五个状态，假如当进度条进到第三个状态1的位置时可以看1页面2页面3页面，但是4和5看不成。于是写了个小demo。">
+<meta property="og:image" content="http://oh6pxgkf2.bkt.clouddn.com/2016-12-01.gif">
+<meta property="og:updated_time" content="2016-12-07T09:09:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS-NSRunLoop对NSTimer作用的理解">
-<meta name="twitter:description" content="什么是NSRunLoop
-NSRunLoop是消息机制的处理模式。
-NSRunLoop的作用在于有事情做的时候使的当前NSRunLoop的线程工作，没有事情做让当前NSRunLoop的线程休眠。">
+<meta name="twitter:title" content="看病app的进度界面">
+<meta name="twitter:description" content="前言iOS交流群里面的小伙伴有一个这样的需求，一个看病app进度条由五个状态，假如当进度条进到第三个状态1的位置时可以看1页面2页面3页面，但是4和5看不成。于是写了个小demo。">
+<meta name="twitter:image" content="http://oh6pxgkf2.bkt.clouddn.com/2016-12-01.gif">
 
 
 
@@ -120,9 +116,9 @@ NSRunLoop的作用在于有事情做的时候使的当前NSRunLoop的线程工�
 
 
 
-  <link rel="canonical" href="http://yangsendev.com/2015/05/22/2015-05-22/"/>
+  <link rel="canonical" href="http://yangsendev.com/2016/12/01/2016-12-01/"/>
 
-  <title> iOS-NSRunLoop对NSTimer作用的理解 | Sean‘s DevBlog </title>
+  <title> 看病app的进度界面 | Sean‘s DevBlog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -252,7 +248,7 @@ NSRunLoop的作用在于有事情做的时候使的当前NSRunLoop的线程工�
             
             
               
-                iOS-NSRunLoop对NSTimer作用的理解
+                看病app的进度界面
               
             
           </h1>
@@ -264,8 +260,8 @@ NSRunLoop的作用在于有事情做的时候使的当前NSRunLoop的线程工�
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-05-22T00:00:00+08:00" content="2015-05-22">
-              2015-05-22
+            <time itemprop="dateCreated" datetime="2016-12-01T00:00:00+08:00" content="2016-12-01">
+              2016-12-01
             </time>
           </span>
 
@@ -275,8 +271,8 @@ NSRunLoop的作用在于有事情做的时候使的当前NSRunLoop的线程工�
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/05/22/2015-05-22/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/22/2015-05-22/" itemprop="commentsCount"></span>
+                <a href="/2016/12/01/2016-12-01/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/01/2016-12-01/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -299,27 +295,12 @@ NSRunLoop的作用在于有事情做的时候使的当前NSRunLoop的线程工�
       
 
       
-        <p>什么是NSRunLoop</p>
-<p>NSRunLoop是消息机制的处理模式。</p>
-<p>NSRunLoop的作用在于有事情做的时候使的当前NSRunLoop的线程工作，没有事情做让当前NSRunLoop的线程休眠。<a id="more"></a></p>
-<p>NSTimer默认添加到当前NSRunLoop中，也可以手动制定添加到自己新建的NSRunLoop。</p>
-<p>NSRunLoop就是一直在循环检测，从线程start到线程end，检测inputsource(如点击，双击等操作)同步事件，检测timesource同步事件，检测到输入源会执行处理函数，首先会产生通知，corefunction向线程添加runloop observers来监听事件，意在监听事件发生时来做处理。</p>
-<p>在单线程的app中，不需要注意Run Loop，但不代表没有。程序启动时，系统已经在主线程中加入了Run Loop。它保证了我们的主线程在运行起来后，就处于一种“等待”的状态（而不像一些命令行程序一样运行一次就结束了），这个时候如果有接收到的事件（Timer的定时到了或是其他线程的消息），就会执行任务，否则就处于休眠状态。</p>
-<p>runloopmode是一个集合，包括监听：事件源，定时器，以及需通知的runloop observers</p>
-<p><strong>模式包括：</strong></p>
-<blockquote>
-<ul>
-<li>default模式：几乎包括所有输入源(除NSConnection) NSDefaultRunLoopMode模式</li>
-<li>mode模式：处理modal panels<br>connection模式：处理NSConnection事*件，属于系统内部，用户基本不用</li>
-<li>event tracking模式：如组件拖动输入源 UITrackingRunLoopModes 不处理定时事件</li>
-<li>common modes模式：NSRunLoopCommonModes 这是一组可配置的通用模式。将input sources与该模式关联则同时也将input sources与该组中的其它模式进行了关联。<br>每次运行一个run loop，你指定（显式或隐式）run loop的运行模式。当相应的模式传递给run loop时，只有与该模式对应的input sources才被监控并允许run loop对事件进行处理（与此类似，也只有与该模式对应的observers才会被通知）</li>
-</ul>
-</blockquote>
-<p>例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- (void)viewDidLoad&#123;</div><div class="line">     [super viewDidLoad];</div><div class="line">     // Do any additional setup after loading the view, typically from a nib.</div><div class="line">       NSTimer * timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(printMessage:) userInfo:nil repeats:YES];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这个时候如果我们在界面上滚动一个scrollview，那么我们会发现在停止滚动前，控制台不会有任何输出，就好像scrollView在滚动的时候将timer暂停了一样，在查看相应文档后发现，这其实就是runloop的mode在做怪。<br>runloop可以理解为cocoa下的一种消息循环机制，用来处理各种消息事件，我们在开发的时候并不需要手动去创建一个runloop，因为框架为我们创建了一个默认的runloop,通过[NSRunloop currentRunloop]我们可以得到一个当前线程下面对应的runloop对象，不过我们需要注意的是不同的runloop之间消息的通知方式。</p>
-<p>接着上面的话题，在开启一个NSTimer实质上是在当前的runloop中注册了一个新的事件源，而当scrollView滚动的时候，当前的MainRunLoop是处于UITrackingRunLoopMode的模式下，在这个模式下，是不会处理NSDefaultRunLoopMode的消息(因为RunLoop Mode不一样)，要想在scrollView滚动的同时也接受其它runloop的消息，我们需要改变两者之间的runloopmode.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];</div></pre></td></tr></table></figure>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>iOS交流群里面的小伙伴有一个这样的需求，一个看病app进度条由五个状态，假如当进度条进到第三个状态1的位置时可以看1页面2页面3页面，但是4和5看不成。于是写了个小demo。<a id="more"></a></p>
+<p><img src="http://oh6pxgkf2.bkt.clouddn.com/2016-12-01.gif" alt=""></p>
+<p>核心代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">//模拟数据 index为进行到第几部</div><div class="line"></div><div class="line">- (void)loadStatesWithIndex:(NSInteger)index&#123;</div><div class="line">    </div><div class="line">    _dataArray=[NSMutableArray array];</div><div class="line">    _states=[NSMutableArray arrayWithArray:@[@&quot;我要手术&quot;,@&quot;预约面谈&quot;,@&quot;术前准备&quot;,@&quot;我在医院&quot;,@&quot;我出院了&quot;]];</div><div class="line">    </div><div class="line">    for (int i=0; i&lt;_states.count; i++) &#123;</div><div class="line">        </div><div class="line">        NSString*str=_states[i];</div><div class="line">        if (i&lt;index) &#123;</div><div class="line">            [_dataArray addObject:str];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">#pragma mark scrollViewDelegate</div><div class="line">- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView&#123;</div><div class="line">    </div><div class="line">    NSInteger index =scrollView.contentOffset.x/scrollView.frame.size.width;</div><div class="line">    </div><div class="line">    if (index!=_step) &#123;</div><div class="line">        </div><div class="line">        NSInteger viewTag=index&gt;_step?10+index:10+index+1;</div><div class="line">        HospitalizationStateType hosState= index&gt;_step?HospitalizationStateTypeFinish:HospitalizationStateTypeReady;</div><div class="line">        </div><div class="line">        HospitalizationView*hosView=(HospitalizationView*)[self.view viewWithTag:viewTag];</div><div class="line">        </div><div class="line">        hosView.state=hosState;</div><div class="line">       </div><div class="line">        _step=index;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>小伙伴需求使用Controller.view来作为视图，晚点Ma一个类似于网易新闻的demo。</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>吼吼~ 这天有点冷。</p>
 
       
     </div>
@@ -342,7 +323,7 @@ NSRunLoop的作用在于有事情做的时候使的当前NSRunLoop的线程工�
       
         <div class="post-tags">
           
-            <a href="/tags/NSRunLoop/" rel="tag">#NSRunLoop</a>
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
           
         </div>
       
@@ -351,13 +332,13 @@ NSRunLoop的作用在于有事情做的时候使的当前NSRunLoop的线程工�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/11/05/2016-11-05/" rel="next" title="TableViw加载倒计时，性能优化，一个定时器完美解决。">
+                <i class="fa fa-chevron-left"></i> TableViw加载倒计时，性能优化，一个定时器完美解决。
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/03/2016-04-03/" rel="prev" title="Git的可视化工具好伙伴:Source Tree">
-                Git的可视化工具好伙伴:Source Tree <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -372,10 +353,10 @@ NSRunLoop的作用在于有事情做的时候使的当前NSRunLoop的线程工�
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/05/22/2015-05-22/"
-     data-title="iOS-NSRunLoop对NSTimer作用的理解"
+        <div class="ds-share flat" data-thread-key="2016/12/01/2016-12-01/"
+     data-title="看病app的进度界面"
      data-content=""
-     data-url="http://yangsendev.com/2015/05/22/2015-05-22/">
+     data-url="http://yangsendev.com/2016/12/01/2016-12-01/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -402,8 +383,8 @@ NSRunLoop的作用在于有事情做的时候使的当前NSRunLoop的线程工�
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/05/22/2015-05-22/"
-           data-title="iOS-NSRunLoop对NSTimer作用的理解" data-url="http://yangsendev.com/2015/05/22/2015-05-22/">
+      <div class="ds-thread" data-thread-key="2016/12/01/2016-12-01/"
+           data-title="看病app的进度界面" data-url="http://yangsendev.com/2016/12/01/2016-12-01/">
       </div>
     
   </div>
@@ -507,7 +488,7 @@ NSRunLoop的作用在于有事情做的时候使的当前NSRunLoop的线程工�
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后记"><span class="nav-number">2.</span> <span class="nav-text">后记</span></a></li></ol></div>
             
           </div>
         </section>
