@@ -56,7 +56,7 @@ else
   GROUP="$(id -gn)"
   TOUCH="/bin/touch"
 fi
-HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew"
+HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
 
 # TODO: bump version when new macOS is released or announced
 MACOS_NEWEST_UNSUPPORTED="12.0"
@@ -665,7 +665,7 @@ EOS
 
 ohai "Homebrew is run entirely by unpaid volunteers. Please consider donating:"
 echo "$(cat <<EOS
-  ${tty_underline}https://mirrors.ustc.edu.cn/brew/brew#donations${tty_reset}
+  ${tty_underline}https://mirrors.ustc.edu.cn/brew.git/brew#donations${tty_reset}
 EOS
 )
 "
